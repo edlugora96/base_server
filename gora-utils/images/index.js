@@ -1,7 +1,8 @@
 const path = require("path");
 const Jimp = require("jimp/es").default;
 
-const urlAngle = path.join(__dirname, "../../uploads/", "angle.png");
+const urlAngle =
+  "https://res.cloudinary.com/dacdvngec/image/upload/v1587907666/angle_ut2dq2.png"; //path.join(__dirname, "../../uploads/", "angle.png");
 
 const composeImage = async ({
   urlIamge,

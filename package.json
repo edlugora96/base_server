@@ -25,6 +25,7 @@
     "http": "0.0.1-security",
     "gora-api": "file:gora-api",
     "gora-utils": "file:gora-utils",
+    "jimp": "^0.10.3",
     "socket.io": "^2.3.0"
   },
   "engines": {
