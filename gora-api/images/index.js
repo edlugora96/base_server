@@ -16,16 +16,16 @@ const imagesApi = (app) => {
 
     router.get("/generate", async (req, res, next) => {
         cacheResponse(res, config.maxTimeInSeconds);
-        const { name } = req.query;
+        const { image = "" } = req.query;
         const { bgColor } = req.query;
         const { size } = req.query;
         const { ppi } = req.query;
         const { mated } = req.query;
-        const { frame } = req.query;
+        const { frame = "" } = req.query;
         const { wFrame } = req.query;
-        const urlIamge = validURL(name)
-            ? name
-            : path.join(__dirname, "../../uploads/", name);
+        const urlIamge = validURL(image)
+            ? image
+            : path.join(__dirname, "../../uploads/", image);
         const urlFrame = validURL(frame)
             ? frame
             : path.join(__dirname, "../../uploads/", frame);
