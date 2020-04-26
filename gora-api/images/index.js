@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const express = require("express");
 const { cacheResponse } = require("gora-utils");
 const { composeImage } = require("gora-utils");
@@ -16,19 +17,23 @@ const imagesApi = (app) => {
 
     router.get("/generate", async (req, res, next) => {
         cacheResponse(res, config.maxTimeInSeconds);
-        const { image = "" } = req.query;
+        const { image = false } = req.query;
         const { bgColor } = req.query;
         const { size } = req.query;
         const { ppi } = req.query;
         const { mated } = req.query;
-        const { frame = "" } = req.query;
+        const { frame = false } = req.query;
         const { wFrame } = req.query;
         const urlIamge = validURL(image)
             ? image
-            : path.join(__dirname, "../../uploads/", image) || "";
+            : image
+            ? path.join(__dirname, "../../uploads/", image)
+            : "";
         const urlFrame = validURL(frame)
             ? frame
-            : path.join(__dirname, "../../uploads/", frame) || "";
+            : frame
+            ? path.join(__dirname, "../../uploads/", frame)
+            : "";
         try {
             console.log({ urlFrame, urlIamge });
             const image = await composeImage({
