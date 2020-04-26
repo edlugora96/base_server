@@ -25,10 +25,10 @@ const imagesApi = (app) => {
         const { wFrame } = req.query;
         const urlIamge = validURL(image)
             ? image
-            : path.join(__dirname, "../../uploads/", image);
+            : path.join(__dirname, "../../uploads/", image) || "";
         const urlFrame = validURL(frame)
             ? frame
-            : path.join(__dirname, "../../uploads/", frame);
+            : path.join(__dirname, "../../uploads/", frame) || "";
         try {
             console.log({ urlFrame, urlIamge });
             const image = await composeImage({
