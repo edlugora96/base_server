@@ -1,0 +1,20 @@
+{
+  "name": "gora-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "@hapi/joi": "^17.1.1",
+    "chalk": "^4.0.0",
+    "config": "file:../config",
+    "jimp": "^0.10.3"
+  },
+  "devDependencies": {}
+}

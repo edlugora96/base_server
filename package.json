@@ -1,0 +1,33 @@
+{
+  "name": "YTDL",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "set DEBUG=app:* && nodemon index",
+    "start": "NODE_ENV=production node index",
+    "start:local": "set NODE_ENV=production && node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "config": "file:config",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-slash": "^2.0.1",
+    "helmet": "^3.22.0",
+    "http": "0.0.1-security",
+    "gora-api": "file:gora-api",
+    "gora-utils": "file:gora-utils",
+    "socket.io": "^2.3.0"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
