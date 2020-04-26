@@ -11,7 +11,7 @@ const composeImage = async ({
   mated,
   bgColor = "#fff",
   urlFrame,
-  wFrame = 1,
+  wFrame = 0.1,
 }) => {
   try {
     const image = await Jimp.read(urlIamge);
