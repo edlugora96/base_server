@@ -5,7 +5,7 @@ const helmet = require("helmet");
 // const slash = require("express-slash");
 const cors = require("cors");
 const timeout = require("connect-timeout");
-const { startIO } = require("./socket.js");
+const { startIO, socket } = require("./socket.js");
 const { imagesApi } = require("gora-api");
 const {
   middlewares: {
@@ -48,7 +48,9 @@ app.use(logErrors);
 app.use(wrapErrors);
 app.use(errorHandler);
 
-app.listen(config.port, config.host, () => {
+const http = startIO(app);
+
+http.listen(process.env.PORT || config.port, () => {
   // eslint-disable-next-line
   console.log(
     `${chalk.blueBright("[server On]:")} Listening http://${config.host}:${
@@ -67,3 +69,7 @@ const handleFatalError = (error) => {
 };
 process.on("uncaughtException", handleFatalError);
 process.on("unhandledRejection", handleFatalError);
+
+socket.io.on("connection", (soc) => {
+  soc.on("hi", (e) => console.log(e));
+});
