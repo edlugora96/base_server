@@ -15,7 +15,9 @@ const composeImage = async ({
   qty = 0,
 }) => {
   try {
-    const image = await Jimp.read(urlIamge);
+    const image = urlIamge
+      ? await Jimp.read(urlIamge)
+      : new Jimp(size > 0 ? size : 750, size > 0 ? size : 750, bgColor);
     const frameHorizontal = urlFrame && (await Jimp.read(urlFrame));
     const frameVertical = urlFrame && (await Jimp.read(urlFrame));
     const frameAngle = urlFrame && (await Jimp.read(urlAngle));
